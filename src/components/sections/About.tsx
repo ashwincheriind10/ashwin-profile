@@ -54,19 +54,12 @@ export function About() {
             className="relative"
           >
             <div className="aspect-square rounded-3xl bg-gradient-to-br from-primary-100 to-accent-100 dark:from-primary-900/30 dark:to-accent-900/30 overflow-hidden">
-              {/* Profile image placeholder with initials */}
-              <div className="w-full h-full flex items-center justify-center">
-                <div className="text-center p-8">
-                  <div className="w-40 h-40 mx-auto mb-4 rounded-full bg-gradient-to-br from-primary-500 to-accent-500 flex items-center justify-center shadow-2xl">
-                    <span className="text-6xl font-bold text-white">
-                      {personal.name.split(" ").map(n => n[0]).join("")}
-                    </span>
-                  </div>
-                  <p className="text-gray-500 dark:text-gray-400 text-sm">
-                    Add profile photo to /images/profile.jpg
-                  </p>
-                </div>
-              </div>
+              {/* Profile image */}
+              <img 
+                src="/images/profile.jpg" 
+                alt={personal.name}
+                className="w-full h-full object-cover object-top"
+              />
             </div>
             
             {/* Decorative elements */}

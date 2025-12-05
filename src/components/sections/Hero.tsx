@@ -64,6 +64,22 @@ export function Hero() {
       />
 
       <div className="relative z-10 max-w-5xl mx-auto px-6 text-center">
+        {/* Profile Image */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.6 }}
+          className="mb-6"
+        >
+          <div className="w-32 h-32 md:w-40 md:h-40 mx-auto rounded-full overflow-hidden border-4 border-white/20 shadow-2xl shadow-primary-500/20">
+            <img 
+              src="/images/profile.jpg" 
+              alt={personal.name}
+              className="w-full h-full object-cover object-top"
+            />
+          </div>
+        </motion.div>
+
         {/* Status badge */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
