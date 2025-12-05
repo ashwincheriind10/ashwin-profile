@@ -1,36 +1,175 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Ashwin Cheripally - Personal Profile Website
+
+A modern, academic-grade personal profile website built with Next.js, Tailwind CSS, and Framer Motion. Designed to showcase leadership, STEM projects, and achievements for college applications.
+
+## Features
+
+- **Modern Design**: Clean, minimal aesthetic inspired by MIT Media Lab
+- **Dark Mode**: Elegant dark/light theme toggle
+- **Responsive**: Mobile-first design that works on all devices
+- **Animations**: Smooth scroll animations and micro-interactions
+- **SEO Optimized**: Full metadata and Open Graph support
+- **Easy to Update**: All content in a single data file
+
+## Tech Stack
+
+- **Framework**: Next.js 15 (App Router)
+- **Styling**: Tailwind CSS
+- **Animations**: Framer Motion
+- **Icons**: Lucide React
+- **Deployment**: Vercel-ready
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
+
+- Node.js 18+ installed
+- npm or yarn package manager
+
+### Installation
 
 ```bash
+# Navigate to project directory
+cd ashwin-profile
+
+# Install dependencies
+npm install
+
+# Start development server
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) to view the site.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Customizing Content
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### Step 1: Update Personal Data
 
-## Learn More
+Edit `src/data/siteData.ts` to update all website content:
 
-To learn more about Next.js, take a look at the following resources:
+```typescript
+// Personal Information
+personal: {
+  name: "Your Name",
+  tagline: "Your tagline",
+  email: "your@email.com",
+  // ... more fields
+}
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Step 2: Add Images
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Place your images in the `public/images/` directory:
 
-## Deploy on Vercel
+```
+public/
+  images/
+    profile.jpg          # Your profile photo
+    cheri-foundation.jpg # Leadership initiative image
+    equibot.jpg          # Project images
+    gallery/
+      *.jpg              # Gallery images
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Step 3: Update Resume
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Add your resume PDF to `public/resume.pdf`
+
+## Project Structure
+
+```
+src/
+  app/
+    page.tsx           # Main page (assembles all sections)
+    layout.tsx         # Root layout with metadata
+    globals.css        # Global styles and theme
+  components/
+    ui/                # Reusable UI components
+      Button.tsx
+      Card.tsx
+      HighlightBadge.tsx
+      SectionHeader.tsx
+    cards/             # Content card components
+      LeadershipCard.tsx
+      ProjectCard.tsx
+      AwardBadge.tsx
+      ActivityCard.tsx
+    sections/          # Page sections
+      Hero.tsx
+      About.tsx
+      Leadership.tsx
+      Projects.tsx
+      Competitions.tsx
+      Activities.tsx
+      Gallery.tsx
+      FutureGoals.tsx
+      Contact.tsx
+    layout/            # Layout components
+      Navbar.tsx
+      Footer.tsx
+  data/
+    types.ts           # TypeScript type definitions
+    siteData.ts        # All website content (EDIT THIS)
+  lib/
+    utils.ts           # Utility functions
+```
+
+## Sections Overview
+
+| Section | Purpose |
+|---------|---------|
+| **Hero** | First impression - name, tagline, aspirations |
+| **About** | Personal story and quick stats |
+| **Leadership** | Cheri Foundation and initiatives |
+| **Projects** | STEM projects (Equibot, Mars Society) |
+| **Competitions** | Awards and competition achievements |
+| **Activities** | Extracurriculars (archery, art, etc.) |
+| **Gallery** | Photo gallery with lightbox |
+| **Future Goals** | Timeline of aspirations |
+| **Contact** | Contact form and social links |
+
+## Deployment
+
+### Deploy to Vercel (Recommended)
+
+1. Push your code to GitHub
+2. Go to [vercel.com](https://vercel.com)
+3. Import your repository
+4. Click "Deploy"
+
+Your site will be live at `your-project.vercel.app`
+
+### Custom Domain
+
+1. In Vercel dashboard, go to Settings > Domains
+2. Add your custom domain
+3. Update DNS records as instructed
+
+## Updating the Site
+
+1. Edit content in `src/data/siteData.ts`
+2. Add/update images in `public/images/`
+3. Commit and push to GitHub
+4. Vercel will automatically redeploy
+
+## Color Palette
+
+The design uses a carefully curated palette:
+
+- **Primary**: Deep space blue (#2563eb) - Technology, innovation
+- **Accent**: Mars orange (#f97316) - Ambition, exploration
+- **MIT Red**: #A31F34 - Used in the "Why MIT" section
+
+## Performance Tips
+
+- Optimize images before uploading (use WebP format)
+- Keep gallery images under 500KB each
+- Profile image should be square (recommended: 800x800px)
+
+## Support
+
+For questions or issues, contact the developer or open a GitHub issue.
+
+---
+
+Built with purpose for Ashwin Cheripally's MIT application journey.
