@@ -53,12 +53,12 @@ export function About() {
             transition={{ duration: 0.6 }}
             className="relative"
           >
-            <div className="aspect-square rounded-3xl bg-gradient-to-br from-primary-100 to-accent-100 dark:from-primary-900/30 dark:to-accent-900/30 overflow-hidden">
+            <div className="aspect-[3/4] rounded-3xl bg-gradient-to-br from-primary-100 to-accent-100 dark:from-primary-900/30 dark:to-accent-900/30 overflow-hidden">
               {/* Profile image */}
               <img 
                 src="/images/profile.jpg" 
                 alt={personal.name}
-                className="w-full h-full object-cover object-top"
+                className="w-full h-full object-cover object-[center_15%]"
               />
             </div>
             
@@ -92,7 +92,7 @@ export function About() {
                 I&apos;ve learned that the best engineering happens when you&apos;re solving problems that matter to real people.
               </p>
               <p>
-                That&apos;s why I founded the <strong className="text-primary-600 dark:text-primary-400">Cheri Foundation</strong> — 
+                That&apos;s why I founded the <a href="https://cherifoundation.com/" target="_blank" rel="noopener noreferrer" className="font-bold text-primary-600 dark:text-primary-400 hover:text-primary-700 underline decoration-2 underline-offset-2">Cheri Foundation</a> — 
                 to bring quality education to 50+ rural students who deserve the same opportunities I&apos;ve had. 
                 Raising ₹3 lakh and seeing students improve their scores by 40% taught me more about impact than any textbook could.
               </p>
