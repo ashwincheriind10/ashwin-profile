@@ -11,6 +11,7 @@ const navLinks = [
   { href: "#leadership", label: "Leadership" },
   { href: "#projects", label: "Projects" },
   { href: "#competitions", label: "Awards" },
+  { href: "#certificates", label: "Certificates" },
   { href: "#timeline", label: "Journey" },
   { href: "#goals", label: "Goals" },
   { href: "#contact", label: "Contact" }

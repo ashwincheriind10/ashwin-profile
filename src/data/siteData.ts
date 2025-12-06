@@ -149,6 +149,30 @@ export const siteData: SiteData = {
       image: "/images/mars-project.jpg",
       status: "completed",
       link: undefined
+    },
+    {
+      id: "collect-cubes",
+      title: "Collect the Cubes — 3D Game",
+      program: "Self-Taught Project (Age 9)",
+      year: "2020",
+      description: "At just 9 years old in grade 4, I created a 3D game called 'Collect the Cubes' where players collect cubes as fast as possible to gain coins. This early project sparked my passion for coding and game development.",
+      technologies: [
+        "C# Programming",
+        "Unity Game Engine",
+        "3ds Max Modeling",
+        "Game Design",
+        "3D Graphics"
+      ],
+      highlights: [
+        "Built complete 3D game at age 9",
+        "Self-taught C# programming in Unity",
+        "Created 3D models using 3ds Max",
+        "Designed game mechanics and scoring system",
+        "Early demonstration of coding passion"
+      ],
+      image: "/images/collect-cubes-game.png",
+      status: "completed",
+      link: undefined
     }
   ],
 
@@ -464,6 +488,13 @@ export const siteData: SiteData = {
       title: "Empower Education Fundraiser",
       description: "Raised ₹3 Lakhs for rural education supplies.",
       type: "leadership"
+    },
+    {
+      id: "timeline-8",
+      year: "2020",
+      title: "First 3D Game — Age 9",
+      description: "Created 'Collect the Cubes' game using C# and Unity.",
+      type: "project"
     }
   ]
 };

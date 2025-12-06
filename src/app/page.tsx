@@ -6,6 +6,7 @@ import { About } from "@/components/sections/About";
 import { Leadership } from "@/components/sections/Leadership";
 import { Projects } from "@/components/sections/Projects";
 import { Competitions } from "@/components/sections/Competitions";
+import { Certificates } from "@/components/sections/Certificates";
 import { Activities } from "@/components/sections/Activities";
 import { Timeline } from "@/components/sections/Timeline";
 import { FutureGoals } from "@/components/sections/FutureGoals";
@@ -22,6 +23,7 @@ export default function Home() {
         <Leadership />
         <Projects />
         <Competitions />
+        <Certificates />
         <Activities />
         <Timeline />
         <FutureGoals />
