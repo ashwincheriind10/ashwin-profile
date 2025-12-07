@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { ExternalLink, Calendar, CheckCircle, Clock, Rocket } from "lucide-react";
+import Image from "next/image";
 import { Card, CardContent } from "@/components/ui/Card";
 import { HighlightBadge } from "@/components/ui/HighlightBadge";
 import { STEMProject } from "@/data/types";
@@ -34,12 +35,20 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
 
   return (
     <Card delay={index * 0.1} className="overflow-hidden group">
-      {/* Project Image Placeholder */}
+      {/* Project Image */}
       <div className="relative h-48 bg-gradient-to-br from-primary-100 to-accent-100 dark:from-primary-900/30 dark:to-accent-900/30 overflow-hidden">
-        {/* TODO: Replace with actual project image */}
-        <div className="absolute inset-0 flex items-center justify-center">
-          <div className="text-6xl opacity-20">🤖</div>
-        </div>
+        {project.image ? (
+          <Image
+            src={project.image}
+            alt={project.title}
+            fill
+            className="object-cover transition-transform duration-500 group-hover:scale-105"
+          />
+        ) : (
+          <div className="absolute inset-0 flex items-center justify-center">
+            <div className="text-6xl opacity-20">🤖</div>
+          </div>
+        )}
         
         {/* Hover overlay */}
         <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />

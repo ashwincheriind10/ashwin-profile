@@ -7,7 +7,7 @@ const highlights = [
   {
     icon: <Globe className="w-6 h-6" />,
     title: "Mars Society",
-    subtitle: "USC Convention 2025",
+    subtitle: "1st Place — USC 2025",
     color: "from-accent-500 to-accent-600",
     glow: "shadow-accent-500/20"
   },

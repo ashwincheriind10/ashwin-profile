@@ -49,6 +49,7 @@ export interface STEMProject {
   image?: string;
   link?: string;
   status: "completed" | "ongoing" | "upcoming";
+  featured?: boolean;
 }
 
 export interface Competition {

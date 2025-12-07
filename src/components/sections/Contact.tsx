@@ -1,7 +1,8 @@
 "use client";
 
+import { useState } from "react";
 import { motion } from "framer-motion";
-import { Mail, MapPin, Send, Github, Linkedin, ExternalLink } from "lucide-react";
+import { Mail, MapPin, Send, Github, Linkedin, Loader2, CheckCircle, AlertCircle } from "lucide-react";
 import { SectionHeader } from "@/components/ui/SectionHeader";
 import { Button } from "@/components/ui/Button";
 import { siteData } from "@/data/siteData";
@@ -12,8 +13,52 @@ const iconMap: Record<string, React.ReactNode> = {
   mail: <Mail className="w-5 h-5" />
 };
 
+const API_URL = "http://65.20.79.24:9005/api/EmailServiceAsh/EmailSend";
+const API_AUTH = "jklgljkadshf&&&&###@@@12578961423uyyfDFGHJ779078hgljkdha$kfsjda$ls79876lksdjfg*sKJDllll89";
+
 export function Contact() {
   const { personal, socials } = siteData;
+  const [formData, setFormData] = useState({ name: "", email: "", message: "" });
+  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
+  const [errorMessage, setErrorMessage] = useState("");
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setStatus("loading");
+    setErrorMessage("");
+
+    try {
+      const response = await fetch(API_URL, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "Authorization": API_AUTH
+        },
+        body: JSON.stringify({
+          fullname: formData.name,
+          fromemail: formData.email,
+          body: formData.message
+        })
+      });
+
+      if (response.ok) {
+        setStatus("success");
+        setFormData({ name: "", email: "", message: "" });
+      } else {
+        throw new Error("Failed to send message");
+      }
+    } catch {
+      setStatus("error");
+      setErrorMessage("Failed to send message. Please try again or email directly.");
+    }
+  };
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    setFormData(prev => ({ ...prev, [e.target.name]: e.target.value }));
+    if (status === "error" || status === "success") {
+      setStatus("idle");
+    }
+  };
 
   return (
     <section id="contact" className="py-24 bg-gray-50 dark:bg-gray-800/50">
@@ -108,7 +153,7 @@ export function Contact() {
                 Send a Message
               </h3>
 
-              <form className="space-y-4">
+              <form onSubmit={handleSubmit} className="space-y-4">
                 <div>
                   <label 
                     htmlFor="name" 
@@ -120,7 +165,11 @@ export function Contact() {
                     type="text"
                     id="name"
                     name="name"
-                    className="w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all"
+                    value={formData.name || ""}
+                    onChange={handleChange}
+                    required
+                    disabled={status === "loading"}
+                    className="w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all disabled:opacity-50"
                     placeholder="Your name"
                   />
                 </div>
@@ -136,7 +185,11 @@ export function Contact() {
                     type="email"
                     id="email"
                     name="email"
-                    className="w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all"
+                    value={formData.email || ""}
+                    onChange={handleChange}
+                    required
+                    disabled={status === "loading"}
+                    className="w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all disabled:opacity-50"
                     placeholder="your@email.com"
                   />
                 </div>
@@ -151,15 +204,42 @@ export function Contact() {
                   <textarea
                     id="message"
                     name="message"
+                    value={formData.message || ""}
+                    onChange={handleChange}
+                    required
+                    disabled={status === "loading"}
                     rows={4}
-                    className="w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all resize-none"
+                    className="w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all resize-none disabled:opacity-50"
                     placeholder="Your message..."
                   />
                 </div>
 
-                <Button type="submit" className="w-full">
-                  <Send className="w-4 h-4 mr-2" />
-                  Send Message
+                {status === "success" && (
+                  <div className="flex items-center gap-2 p-3 rounded-xl bg-green-50 dark:bg-green-900/20 text-green-700 dark:text-green-400 text-sm">
+                    <CheckCircle className="w-4 h-4" />
+                    Message sent successfully! I&apos;ll get back to you soon.
+                  </div>
+                )}
+
+                {status === "error" && (
+                  <div className="flex items-center gap-2 p-3 rounded-xl bg-red-50 dark:bg-red-900/20 text-red-700 dark:text-red-400 text-sm">
+                    <AlertCircle className="w-4 h-4" />
+                    {errorMessage}
+                  </div>
+                )}
+
+                <Button type="submit" className="w-full" disabled={status === "loading"}>
+                  {status === "loading" ? (
+                    <>
+                      <Loader2 className="w-4 h-4 mr-2 animate-spin" />
+                      Sending...
+                    </>
+                  ) : (
+                    <>
+                      <Send className="w-4 h-4 mr-2" />
+                      Send Message
+                    </>
+                  )}
                 </Button>
 
                 <p className="text-xs text-gray-500 dark:text-gray-400 text-center">

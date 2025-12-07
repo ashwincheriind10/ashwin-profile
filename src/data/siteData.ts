@@ -12,9 +12,9 @@ export const siteData: SiteData = {
   // ==========================================
   personal: {
     name: "Ashwin Cheripally",
-    tagline: "Robotics Enthusiast | Founder, Cheri Foundation | Mars Society Finalist",
+    tagline: "Robotics Enthusiast | Founder, Cheri Foundation | Mars Society 1st Place Winner",
     location: "India",
-    email: "ashwin.cheripally@gmail.com",
+    email: "acheripally@ashwincheripally.com",
     grade: "10th Grade",
     school: "India",
     aspirations: [
@@ -32,7 +32,7 @@ export const siteData: SiteData = {
   socials: [
     {
       platform: "LinkedIn",
-      url: "https://linkedin.com/in/ashwin-cheripally",
+      url: "https://www.linkedin.com/in/ashwin-cheripally-054214206/",
       icon: "linkedin"
     },
     {
@@ -42,7 +42,7 @@ export const siteData: SiteData = {
     },
     {
       platform: "Email",
-      url: "mailto:ashwin.cheripally@gmail.com",
+      url: "mailto:acheripally@ashwincheripally.com",
       icon: "mail"
     }
   ],
@@ -120,7 +120,7 @@ export const siteData: SiteData = {
         "Team presented Equibot on stage at closing ceremony",
         "Received participation certificate from Plaksha University"
       ],
-      image: "/images/equibot.jpg",
+      image: "/images/equibotimage.jpeg",
       status: "completed",
       link: undefined
     },
@@ -129,7 +129,7 @@ export const siteData: SiteData = {
       title: "Team SOLACE — Mars Mission Design",
       program: "Mars Society International Design Competition",
       year: "2025",
-      description: "Led the Engineering team for Team SOLACE in designing a complete 1.5-year mission to Mars. Our theoretical project included designing maps, rovers, and innovative solutions for Mars exploration.",
+      description: "Led the Engineering team for Team SOLACE in designing a complete theoretical 1.5-year mission to Mars. Our project included designing maps, rovers, and innovative solutions for Mars exploration.",
       technologies: [
         "Mission Planning",
         "Rover Design",
@@ -139,15 +139,18 @@ export const siteData: SiteData = {
         "Design Validation"
       ],
       highlights: [
-        "Invited to present at Mars Society Convention 2025 at USC",
+        "Won 1st position overall in International Design Competition",
+        "Won 1st place in the Engineering division",
+        "Competed against students from all over the world",
+        "Invited to the 2025 Mars Society Convention at University of Southern California, LA, USA",
+        "Travelled to the USA to present at USC",
         "Led the Engineering team for the project",
         "Designed complete 1.5-year Mars mission plan",
-        "Created maps, rovers, and new innovative ideas",
-        "Learned risk assessment and mitigation strategies",
-        "Studied past Mars missions for design validation"
+        "Created maps, rovers, and new innovative ideas"
       ],
-      image: "/images/mars-project.jpg",
+      image: "/images/mars-convention-ashwin.jpeg",
       status: "completed",
+      featured: true,
       link: undefined
     },
     {
@@ -185,8 +188,8 @@ export const siteData: SiteData = {
       name: "Mars Society International Design Competition",
       organizer: "The Mars Society",
       year: "2025",
-      achievement: "Finalist — Invited to USC Convention",
-      description: "International competition for Mars mission design. Team SOLACE was invited to present at the prestigious Mars Society Convention 2025 at the University of Southern California.",
+      achievement: "1st Place Overall & 1st in Engineering",
+      description: "Won 1st position overall and 1st in the Engineering division in an International design competition with students from all over the world. Invited to present at the 2025 Mars Society Convention at University of Southern California, LA, USA.",
       level: "international",
       category: "science"
     },
@@ -443,8 +446,8 @@ export const siteData: SiteData = {
     {
       id: "timeline-1",
       year: "2025",
-      title: "Mars Society Convention — USC",
-      description: "Team SOLACE invited to present Mars mission design at USC.",
+      title: "Mars Society — 1st Place & USC Convention",
+      description: "Won 1st place overall and 1st in Engineering. Travelled to USA to present at Mars Society Convention at USC, Los Angeles.",
       type: "achievement"
     },
     {
