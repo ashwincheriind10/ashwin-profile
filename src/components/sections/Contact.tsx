@@ -13,8 +13,7 @@ const iconMap: Record<string, React.ReactNode> = {
   mail: <Mail className="w-5 h-5" />
 };
 
-const API_URL = "http://65.20.79.24:9005/api/EmailServiceAsh/EmailSend";
-const API_AUTH = "jklgljkadshf&&&&###@@@12578961423uyyfDFGHJ779078hgljkdha$kfsjda$ls79876lksdjfg*sKJDllll89";
+const API_URL = "/api/contact";
 
 export function Contact() {
   const { personal, socials } = siteData;
@@ -31,8 +30,7 @@ export function Contact() {
       const response = await fetch(API_URL, {
         method: "POST",
         headers: {
-          "Content-Type": "application/json",
-          "Authorization": API_AUTH
+          "Content-Type": "application/json"
         },
         body: JSON.stringify({
           fullname: formData.name,
